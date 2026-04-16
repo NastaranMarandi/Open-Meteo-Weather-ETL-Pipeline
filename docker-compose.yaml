@@ -1,0 +1,22 @@
+version: "3.9"
+
+networks:
+  local:
+    external: true
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: postgres
+    environment:
+      POSTGRES_USER: username
+      POSTGRES_PASSWORD: password
+    ports:
+      - "port-No:port-No"
+    networks:
+      - local
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
